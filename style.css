@@ -23,7 +23,7 @@ margin: 0;
     position: fixed;
     top: 0;
     width: 100%;
-    background-image: linear-gradient(90deg, #5C8A5C, #3B6A3A, #0A3D2A);
+    background-image: linear-gradient(90deg, #1d1c27, #252860, #1d1851,#1d1c27);
     background-color: transparent;
 }
 .logo {
@@ -60,6 +60,99 @@ margin: 0;
 }
 /* Main Hero Section Styles */
 .hero {
+  background-image: url('./Images/heroImg3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4.8rem 0;
+    font-family: 'Poppins', 'san sans-serif'
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 40px;
+  color: #1f1f1f;
+}
+
+.hero-text h4 {
+  
+  color: #525861;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 {
+  font-family: 'Times New Roman';
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #9f9db9;
+}
+
+.hero-text h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color:  #525861;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.cv-btn {
+    background-image: linear-gradient(90deg, #252860, #1d1851,#0f0a45);
+  color: #fff;
+}
+
+.cv-btn:hover {
+  color: #d6d7e6;
+}
+
+.linkedin-btn {
+  background-color: transparent;
+  color: #e0e0e8;
+  border: 2px solid #0a103d;
+}
+
+.linkedin-btn:hover {
+    background-image: linear-gradient(90deg, #151855, #1d1851,#1d1478);
+  color: #fff;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/*
+.hero {
     background-image: url('./Images/heroImg3.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -86,7 +179,7 @@ margin: 0;
   height: auto;
   object-fit: cover;
 }
-
+*/
 /* About section styles */
 .about {
     display: flex;
@@ -208,7 +301,8 @@ margin: 0;
     width: 50px;
     margin: 1rem 1rem 0 1rem;
     border-radius: 50%;
-    background-color: #53C8B6;
+   
+    background-image: linear-gradient(90deg, #252860, #1d1851,#0f0a45);
 }
 .footer-links {
     font-size: 24px;
@@ -256,11 +350,19 @@ margin: 0;
     color: #fff;
 }
 .btn {
-    padding: 10px 20px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+    /*padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     letter-spacing: 1px;
-    border: none;
+    border: none;*/
 }
 .common-btn {
     background-color: #35A99C;
