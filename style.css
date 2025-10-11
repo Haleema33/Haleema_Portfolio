@@ -1,10 +1,19 @@
 /* Styles defined for the desktop or the bigger screen devices*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body {
-    margin: 0;
+margin: 0;
+  padding: 0;
+  background-color: #0d1117;
+  color: white;
+  font-family: Poppins, sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+
+   /* margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(90deg, #e3e6e3, #617f61 ); */
 }
 /* Header Navbar Styles */
 .navbar {
@@ -14,7 +23,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-image: linear-gradient(90deg, #74D7BB, #53C8B6, #35A99C);
+    background-image: linear-gradient(90deg, #5C8A5C, #3B6A3A, #0A3D2A);
     background-color: transparent;
 }
 .logo {
@@ -51,7 +60,7 @@ body {
 }
 /* Main Hero Section Styles */
 .hero {
-    background-image: url('./Images/heroImg3.avif');
+    background-image: url('./Images/heroImg3.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
@@ -60,6 +69,7 @@ body {
     align-items: center;
     justify-content: start;
     margin: 4.8rem 0;
+    
 }
 .hero .intro {
     text-align: center;
@@ -71,6 +81,12 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* About section styles */
 .about {
     display: flex;
@@ -286,4 +302,34 @@ body {
 }
 .blue-text {
     color: #363D73;
+}
+
+/*Addding the style like active link when it is, in nav bar*/
+.menu-list a.active {
+  color: #0078ff;        /* Highlight color */
+  font-weight: bold;     /* Make it stand out */
+  border-bottom: 2px solid #0078ff; /* Optional underline */
+}
+
+/*No hover over heading link*/
+.logo-link {
+  color: inherit;            /* Keep same color as heading */
+  text-decoration: none;     /* Remove underline */
+  cursor: pointer;           /* Show clickable hand icon */
+}
+
+.logo-link:hover {
+  text-decoration: none;     /* No underline on hover */
+  color: inherit;            /* Don’t change color */
+}
+
+/*Adding for background animation*/
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* keeps it behind your content */
+  background: #0d1117; /* optional background color */
 }

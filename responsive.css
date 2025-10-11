@@ -13,7 +13,7 @@
         right: 0;
         padding: 0 3rem;
         top: 75px;
-        background-image: linear-gradient(180deg, #74D7BB, #53C8B6, #35A99C);
+        background-image: linear-gradient(90deg, #5C8A5C, #3B6A3A, #0A3D2A);
         display: none;
         transition: all 0.25s;
     }
