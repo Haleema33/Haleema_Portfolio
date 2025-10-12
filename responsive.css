@@ -45,6 +45,21 @@
         width: 35%;
     }
 }
+
+/*responsivenes for about page images*/ 
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
 /* CSS for mobile devices */
 @media screen and (min-width: 280px) and (max-width: 576px) {
     .hero {

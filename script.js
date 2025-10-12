@@ -67,3 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
     retina_detect: true,
   });
 });
+
+//fetching ABOUT page content to Home page
+fetch("about.html")
+  .then(response => response.text())
+  .then(data => {
+    // Create a temporary DOM parser
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/html");
+
+    // Extract only the main content (without header/footer)
+    const aboutContent = doc.querySelector("#about-main");
+
+    // Inject it into your homepage
+    document.getElementById("about-section").innerHTML = aboutContent.innerHTML;
+  })
+  .catch(error => console.error("Error loading About section:", error));
