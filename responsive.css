@@ -46,7 +46,7 @@
     }
 }
 
-/*responsivenes for about page images*/ 
+/*responsivenes for About Me page images*/ 
 /* Responsive */
 @media (max-width: 768px) {
   .about-container {
@@ -58,6 +58,8 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+
 
 
 /* CSS for mobile devices */

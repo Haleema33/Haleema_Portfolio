@@ -1,7 +1,8 @@
 /* Styles defined for the desktop or the bigger screen devices*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body {
-margin: 0;
+  
+  margin-top: 100px;
   padding: 0;
   background-color: #0d1117;
   color: white;
@@ -9,12 +10,7 @@ margin: 0;
   height: 100vh;
   overflow-x: hidden;
 
-   /* margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(90deg, #e3e6e3, #617f61 ); */
-}
+   }
 /* Header Navbar Styles */
 .navbar {
     display: flex;
@@ -64,7 +60,7 @@ margin: 0;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,35 +151,13 @@ margin: 0;
 }
 
 
-/* About section styles 
-.about {
-    display: flex;
-    align-items: center;
-    background-image: linear-gradient(45deg, #363D73, #2794B3);
-    justify-content: space-between;
-    width: 100%;
-}
-.about .about-text {
-    width: 450px;
-    color: #fff;
-    padding: 5rem 1rem 5rem 5rem;
-}
-.about .about-image img {
-    height: 400px;
-    width: 450px;
-    padding: 5rem 5rem 5rem 1rem;
-}*/
-
-.about-wrapper {
- 
-  padding-top: 0;
-}
+/*About ME page styling*/
 
 .about-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 20px;
   background: transparent;
 }
 
@@ -191,12 +165,14 @@ margin: 0;
     
   display: flex;
   flex-wrap: wrap;
-  max-width: 1150px;
+  max-width: 1100px;
   background: rgb(9, 3, 49);
   border-radius: 20px;
   overflow: hidden;
   padding: 40px;
   gap: 30px;
+ 
+  
 }
 
 .about-text {
@@ -221,7 +197,6 @@ margin: 0;
   color: #cbd1d1;
   line-height: 1.6;
 }
-
 
 .about-images {
   flex: 1 1 400px;
@@ -480,3 +455,4 @@ margin: 0;
   z-index: -1; /* keeps it behind your content */
   background: #0d1117; /* optional background color */
 }
+

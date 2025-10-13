@@ -1,0 +1,189 @@
+/* ==============================
+   GLOBAL CONTAINER STYLING
+============================== */
+.education-container {
+   
+   max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font: 32px, 'Poppins', sans-serif;
+    align-items: center;
+  margin: 0 auto;
+  
+   border-radius: 20px;
+ 
+
+    
+}
+
+/* ==============================
+   SECTION BASE STYLING
+============================== */
+.main-section {
+    background: rgb(9, 3, 49);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 5%;
+    max-width: 1000px;
+    align-items: center;
+   
+   
+}
+
+/* Section Headings */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: inline-block;
+    padding-bottom: 5px;
+    
+}
+
+/* ==============================
+   EDUCATION SECTION
+============================== */
+.education-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.education-school {
+    color: #ffd700; /* Gold text */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.education-degree {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* ==============================
+   COURSES SECTION
+============================== */
+.courses-box {
+  background: rgb(9, 3, 49);;
+  padding: 40px;
+  border-radius: 20px;
+  margin: 60px auto;
+  width: 90;
+  color: white;
+  text-align: left;
+  max-width: 1000px;
+
+}
+
+/* Course title */
+.course-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+/* Grid layout for course cards */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Individual course cards */
+.course-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Hover animation for smooth effect */
+.course-card:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+/* ==============================
+   AWARDS SECTION
+============================== */
+
+
+.award-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+    
+}
+
+.award-title {
+    color: #ffd700; /* Gold heading */
+    margin-bottom: 10px;
+    
+}
+
+.award-detail {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+@media (max-width: 768px) {
+    .education-container {
+        padding: 0 10px;
+        gap: 30px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .education-item,
+    .award-item,
+    .courses-list {
+        padding: 15px;
+    }
+}
+
+/*first read me content*/
+.read-more {
+  display: inline-block;
+  text-decoration: none;
+  color: #080e6d;
+  font-weight: 600;
+  border: 2px solid #12065c;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+/*second read me content*/
+
+
+.read-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+

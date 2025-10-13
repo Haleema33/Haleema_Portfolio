@@ -1,39 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-const hamburger = document.getElementById('hamburger');
-const menu = document.querySelector('.menu');
-hamburger.addEventListener('click', function () {
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.querySelector('.menu');
+  hamburger.addEventListener('click', function () {
     const hamIcon = this.querySelector('.hamburger-icon');
     const crossIcon = this.querySelector('.cross-icon');
     if (hamIcon.style.display === "none") {
-        hamIcon.style.display = "inline-block"
-        menu.style.display = "none"
-        crossIcon.style.display = "none"
+      hamIcon.style.display = "inline-block"
+      menu.style.display = "none"
+      crossIcon.style.display = "none"
     }
     else {
-        crossIcon.style.display = "inline-block"
-        hamIcon.style.display = "none"
-        menu.style.display = "block"
-    }
-});
-
-// Highlight active nav link based on current page URL
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop(); // e.g. "about.html"
-  const navLinks = document.querySelectorAll(".menu-list a");
-
-  navLinks.forEach(link => {
-    const linkPage = link.getAttribute("href");
-
-    // Match current page with nav link
-    if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+      crossIcon.style.display = "inline-block"
+      hamIcon.style.display = "none"
+      menu.style.display = "block"
     }
   });
-});
 
-//adding background animation
+  // Highlight active nav link based on current page URL
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = window.location.pathname.split("/").pop(); // e.g. "about.html"
+    const navLinks = document.querySelectorAll(".menu-list a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      // Match current page with nav link
+      if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
+
+  //adding background animation
 
   particlesJS("particles-js", {
     particles: {
@@ -83,3 +83,38 @@ fetch("about.html")
     document.getElementById("about-section").innerHTML = aboutContent.innerHTML;
   })
   .catch(error => console.error("Error loading About section:", error));
+
+
+
+
+//fetching education page content to Home page
+
+
+// Run only on home page
+if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+  fetch("education.html")
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, "text/html");
+      const aboutContent = doc.querySelector("#education");
+      const educationBox = document.getElementById("education");
+
+      if (aboutContent && educationBox) {
+        educationBox.innerHTML = aboutContent.innerHTML;
+
+        const readMoreContainer = document.createElement("div");
+        readMoreContainer.className = "read-more-container";
+        readMoreContainer.innerHTML = `
+          <a href="education.html" class="read-more" 
+             style="display:inline-block;margin-top:15px;color:#00bfff;text-decoration:none;">
+             Read More →
+          </a>
+        `;
+        educationBox.appendChild(readMoreContainer);
+      }
+    })
+    .catch(error => console.error("Error loading Education section:", error));
+}
+
+
