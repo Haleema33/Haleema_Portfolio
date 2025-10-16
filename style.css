@@ -31,6 +31,7 @@ body {
 
 .menu {
     padding: 0 5rem;
+    background:  #1d1c27, #252860, #1d1851, #1d1c27;
 }
 
 .hamburger {
@@ -44,9 +45,12 @@ body {
 .menu .menu-list {
     display: flex;
     list-style: none;
+   
 }
 .menu-list .menu-list-items {
     padding: 0.5rem 1rem;
+    
+    
 }
 
 @media screen and (min-width: 856px) and (max-width: 1024px) {
@@ -56,15 +60,15 @@ body {
 }
 /* Main Hero Section Styles */
 .hero {
-  background-image: url('./Images/heroImg3.jpg');
+  
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 100%;
+    width: 80%;
     height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4.8rem 0;
+    margin: auto;
     font-family: 'Poppins', 'san sans-serif'
 }
 
@@ -78,6 +82,8 @@ body {
 }
 
 .hero-text {
+  padding: 30px;
+    margin: auto;
   flex: 1;
   padding-right: 40px;
   color: #1f1f1f;
@@ -142,9 +148,10 @@ body {
   justify-content: center;
 }
 
+
 .hero-image img {
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
@@ -159,6 +166,8 @@ body {
   align-items: center;
   padding: 20px;
   background: transparent;
+  margin: auto;
+  width: 90%;
 }
 
 .about-container {

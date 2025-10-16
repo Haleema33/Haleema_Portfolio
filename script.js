@@ -87,10 +87,7 @@ fetch("about.html")
 
 
 
-//fetching education page content to Home page
 
-
-// Run only on home page
 if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
   fetch("education.html")
     .then(response => response.text())
@@ -101,20 +98,30 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
       const educationBox = document.getElementById("education");
 
       if (aboutContent && educationBox) {
+        // Copy only the inner content of education.html's #education
         educationBox.innerHTML = aboutContent.innerHTML;
 
+        // ✅ Now, find the section inside educationBox
+        const section = educationBox.querySelector(".education-box");
+
+        // Create the "Read More" container
         const readMoreContainer = document.createElement("div");
         readMoreContainer.className = "read-more-container";
         readMoreContainer.innerHTML = `
-          <a href="education.html" class="read-more" 
+          <a href="education.html" class="read-more"
              style="display:inline-block;margin-top:15px;color:#00bfff;text-decoration:none;">
              Read More →
           </a>
         `;
-        educationBox.appendChild(readMoreContainer);
+
+        // ✅ Append it INSIDE the section (bottom)
+        if (section) {
+          section.appendChild(readMoreContainer);
+        } else {
+          // fallback if section not found
+          educationBox.appendChild(readMoreContainer);
+        }
       }
     })
     .catch(error => console.error("Error loading Education section:", error));
 }
-
-

@@ -13,7 +13,7 @@
         right: 0;
         padding: 0 3rem;
         top: 75px;
-        background-image: linear-gradient(90deg, #5C8A5C, #3B6A3A, #0A3D2A);
+        background-image: linear-gradient(90deg, #0d214b, #1a2061, #120a31);
         display: none;
         transition: all 0.25s;
     }
@@ -63,18 +63,30 @@
 
 
 /* CSS for mobile devices */
-@media screen and (min-width: 280px) and (max-width: 576px) {
+@media screen and (min-width: 280px) and (max-width: 912px) {
     .hero {
+        height: auto;
+        padding: 2rem ;
         justify-content: center;
-        color: #fff;
-        background-image: radial-gradient(circle, rgb(15 14 14 / 30%), rgb(102 96 96 / 40%), rgb(163 160 160 / 16%)), url('./Images/heroImg3.avif')
-    }
+        color: transparent;
+     }
     .sub-heading {
         color: #fff9f9cc;
     }
     .hero .intro-buttons {
         gap: 20px;
     }
+     .hero-container {
+       
+        padding: 1rem ;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin: 20px auto;
+  }
     .btn {
         padding: 10px 30px;
     }
@@ -86,7 +98,7 @@
         right: 0;
         padding: 0 2rem;
         top: 75px;
-        background-image: linear-gradient(180deg, #35A99C, #53C8B6, #74D7BB);
+        background-image: linear-gradient(90deg, #1d1c27, #252860, #1d1851, #1d1c27);
         display: none;
         transition: all 0.25s;
     }
@@ -152,4 +164,17 @@
     .footer-list-items {
         margin: 0;
     }
+
+} 
+
+@media (max-width: 912px) {
+    .education-container,.courses{
+        padding: 0 10px;
+        gap: 30px;
+        width:80%;
+        margin: auto;
+        height: auto;
+        padding: 5%;
+    }
 }
+    
