@@ -77,12 +77,10 @@
     border-radius: 15px;
 }
 
-/* The About markup has a nested .about-section; make that nested wrapper transparent. */
 .home-section-wrapper .about-section .about-section {
     background: transparent;
 }
 
-/* Give every homepage card the same outer treatment and minimum height. */
 .home-section-wrapper .about-container,
 .home-section-wrapper .main-section,
 .home-section-wrapper .experiences-box {
@@ -145,5 +143,43 @@
         margin: auto;
         height: auto;
         padding: 5%;
+    }
+}
+
+/* Final mobile override: all three homepage cards use the same outer box. */
+@media screen and (min-width: 280px) and (max-width: 912px) {
+    #about-section,
+    #education,
+    #experiences {
+        width: calc(100% - 20px) !important;
+        max-width: 1000px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    #about-section > .about-section,
+    #education > .education-container,
+    #experiences > .experiences-box {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    #about-section .about-container,
+    #education .main-section,
+    #experiences .main-section,
+    #experiences .experiences-box {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 520px !important;
+        height: 520px !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
     }
 }
