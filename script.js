@@ -50,62 +50,69 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-  const loadSection = (source, targetId, configure) => {
-    const target = document.getElementById(targetId);
-    if (!target) return;
+  fetch("about.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const aboutContent = doc.querySelector("#about-main");
+      const aboutSection = document.getElementById("about-section");
 
-    fetch(source)
-      .then(response => {
-        if (!response.ok) throw new Error(`Unable to load ${source}`);
-        return response.text();
-      })
-      .then(data => {
-        const doc = new DOMParser().parseFromString(data, "text/html");
-        const content = doc.querySelector(`#${targetId}`);
-        if (!content) return;
-        target.innerHTML = content.innerHTML;
-        target.classList.add("home-section-wrapper");
-        configure(target);
-      })
-      .catch(error => console.error(`Error loading ${source}:`, error));
-  };
+      if (aboutContent && aboutSection) {
+        aboutSection.innerHTML = aboutContent.innerHTML;
+      }
+    })
+    .catch(error => console.error("Error loading About section:", error));
 
-  loadSection("about.html", "about-section", aboutBox => {
-    const aboutText = aboutBox.querySelector(".about-text");
-    if (!aboutText) return;
+  fetch("education.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const educationContent = doc.querySelector("#education");
+      const educationBox = document.getElementById("education");
 
-    aboutText.querySelectorAll("p").forEach((paragraph, index) => {
-      if (index > 0) paragraph.classList.add("about-preview-extra");
-    });
+      if (educationContent && educationBox) {
+        educationBox.innerHTML = educationContent.innerHTML;
 
-    const readMoreContainer = document.createElement("div");
-    readMoreContainer.className = "read-more-container";
-    readMoreContainer.innerHTML = '<a href="about.html" class="read-more">Read More →</a>';
-    aboutText.appendChild(readMoreContainer);
-  });
+        const section = educationBox.querySelector(".education-box");
+        const readMoreContainer = document.createElement("div");
+        readMoreContainer.className = "read-more-container";
+        readMoreContainer.innerHTML = '<a href="education.html" class="read-more">Read More →</a>';
 
-  loadSection("education.html", "education", educationBox => {
-    const section = educationBox.querySelector(".education-box");
-    const readMoreContainer = document.createElement("div");
-    readMoreContainer.className = "read-more-container";
-    readMoreContainer.innerHTML = '<a href="education.html" class="read-more">Read More →</a>';
+        if (section) section.appendChild(readMoreContainer);
+        else educationBox.appendChild(readMoreContainer);
+      }
+    })
+    .catch(error => console.error("Error loading Education section:", error));
 
-    if (section) section.appendChild(readMoreContainer);
-    else educationBox.appendChild(readMoreContainer);
-  });
+  fetch("experiences.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const sourceSection = doc.querySelector(".experiences-box");
+      const target = document.getElementById("experiences");
 
-  loadSection("experiences.html", "experiences", experiencesBox => {
-    const section = experiencesBox.querySelector(".experiences-box");
-    if (!section) return;
+      if (!sourceSection || !target) return;
 
-    const experienceItems = section.querySelectorAll(".experience-item");
-    experienceItems.forEach((item, index) => {
-      if (index >= 2) item.classList.add("experience-preview-extra");
-    });
+      const previewSection = document.createElement("section");
+      previewSection.className = "main-section experiences-box";
 
-    const readMoreContainer = document.createElement("div");
-    readMoreContainer.className = "read-more-container";
-    readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
-    section.appendChild(readMoreContainer);
-  });
+      const heading = document.createElement("h2");
+      heading.className = "section-title";
+      heading.textContent = "Experiences";
+      previewSection.appendChild(heading);
+
+      const items = Array.from(sourceSection.querySelectorAll(".experience-item")).slice(0, 2);
+      items.forEach(item => {
+        previewSection.appendChild(item.cloneNode(true));
+      });
+
+      const readMoreContainer = document.createElement("div");
+      readMoreContainer.className = "read-more-container";
+      readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
+      previewSection.appendChild(readMoreContainer);
+
+      target.innerHTML = "";
+      target.appendChild(previewSection);
+    })
+    .catch(error => console.error("Error loading Experiences preview:", error));
 }
