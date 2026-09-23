@@ -18,10 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Highlight the active navigation link based on the current page.
   const currentPage = window.location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".menu-list a");
-  navLinks.forEach(link => {
+  document.querySelectorAll(".menu-list a").forEach(link => {
     const linkPage = link.getAttribute("href");
     if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
       link.classList.add("active");
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Background animation.
   if (typeof particlesJS === "function" && document.getElementById("particles-js")) {
     particlesJS("particles-js", {
       particles: {
@@ -52,45 +49,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Load homepage previews.
 if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-  const aboutBox = document.getElementById("about-section");
+  fetch("about.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const aboutContent = doc.querySelector("#about-main");
+      const aboutSection = document.getElementById("about-section");
 
-  if (aboutBox) {
-    fetch("about.html")
-      .then(response => response.text())
-      .then(data => {
-        const doc = new DOMParser().parseFromString(data, "text/html");
-        const aboutContent = doc.querySelector("#about-main");
-        if (!aboutContent) return;
+      if (!aboutContent || !aboutSection) return;
 
-        aboutBox.innerHTML = aboutContent.innerHTML;
-        aboutBox.classList.add("home-section-wrapper");
+      aboutSection.innerHTML = aboutContent.innerHTML;
+      aboutSection.classList.add("home-section-wrapper");
 
-        const aboutText = aboutBox.querySelector(".about-text");
-        if (aboutText) {
-          aboutText.querySelectorAll("p").forEach((paragraph, index) => {
-            if (index > 0) paragraph.classList.add("about-preview-extra");
-          });
+      const aboutText = aboutSection.querySelector(".about-text");
+      if (aboutText) {
+        // Keep only the first paragraph on the homepage; the full text remains on about.html.
+        Array.from(aboutText.querySelectorAll("p")).slice(1).forEach(paragraph => paragraph.remove());
 
-          const readMoreContainer = document.createElement("div");
-          readMoreContainer.className = "read-more-container";
-          readMoreContainer.innerHTML = '<a href="about.html" class="read-more">Read More →</a>';
-          aboutText.appendChild(readMoreContainer);
-        }
-      })
-      .catch(error => console.error("Error loading About section:", error));
-  }
+        const readMoreContainer = document.createElement("div");
+        readMoreContainer.className = "read-more-container";
+        readMoreContainer.innerHTML = '<a href="about.html" class="read-more">Read More →</a>';
+        aboutText.appendChild(readMoreContainer);
+      }
+    })
+    .catch(error => console.error("Error loading About section:", error));
 
-  const educationBox = document.getElementById("education");
-  if (educationBox) {
-    fetch("education.html")
-      .then(response => response.text())
-      .then(data => {
-        const doc = new DOMParser().parseFromString(data, "text/html");
-        const educationContent = doc.querySelector("#education");
-        if (!educationContent) return;
+  fetch("education.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const educationContent = doc.querySelector("#education");
+      const educationBox = document.getElementById("education");
 
+      if (educationContent && educationBox) {
         educationBox.innerHTML = educationContent.innerHTML;
         educationBox.classList.add("home-section-wrapper");
 
@@ -101,35 +93,39 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
 
         if (section) section.appendChild(readMoreContainer);
         else educationBox.appendChild(readMoreContainer);
-      })
-      .catch(error => console.error("Error loading Education section:", error));
-  }
+      }
+    })
+    .catch(error => console.error("Error loading Education section:", error));
 
-  const experiencesBox = document.getElementById("experiences");
-  if (experiencesBox) {
-    fetch("experiences.html")
-      .then(response => response.text())
-      .then(data => {
-        const doc = new DOMParser().parseFromString(data, "text/html");
-        const experiencesContent = doc.querySelector("#experiences");
-        if (!experiencesContent) return;
+  fetch("experiences.html")
+    .then(response => response.text())
+    .then(data => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const sourceSection = doc.querySelector(".experiences-box");
+      const target = document.getElementById("experiences");
 
-        const section = experiencesContent.querySelector(".experiences-box");
-        if (!section) return;
+      if (!sourceSection || !target) return;
 
-        const previewSection = section.cloneNode(true);
-        const experienceItems = Array.from(previewSection.querySelectorAll(".experience-item"));
-        experienceItems.slice(2).forEach(item => item.remove());
+      const previewSection = document.createElement("section");
+      previewSection.className = "main-section experiences-box";
 
-        const readMoreContainer = document.createElement("div");
-        readMoreContainer.className = "read-more-container";
-        readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
-        previewSection.appendChild(readMoreContainer);
+      const heading = document.createElement("h2");
+      heading.className = "section-title";
+      heading.textContent = "Experiences";
+      previewSection.appendChild(heading);
 
-        experiencesBox.innerHTML = "";
-        experiencesBox.classList.add("home-section-wrapper");
-        experiencesBox.appendChild(previewSection);
-      })
-      .catch(error => console.error("Error loading Experiences section:", error));
-  }
+      Array.from(sourceSection.querySelectorAll(".experience-item"))
+        .slice(0, 2)
+        .forEach(item => previewSection.appendChild(item.cloneNode(true)));
+
+      const readMoreContainer = document.createElement("div");
+      readMoreContainer.className = "read-more-container";
+      readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
+      previewSection.appendChild(readMoreContainer);
+
+      target.innerHTML = "";
+      target.classList.add("home-section-wrapper");
+      target.appendChild(previewSection);
+    })
+    .catch(error => console.error("Error loading Experiences preview:", error));
 }
