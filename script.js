@@ -57,8 +57,22 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
       const aboutContent = doc.querySelector("#about-main");
       const aboutSection = document.getElementById("about-section");
 
-      if (aboutContent && aboutSection) {
-        aboutSection.innerHTML = aboutContent.innerHTML;
+      if (!aboutContent || !aboutSection) return;
+
+      aboutSection.innerHTML = aboutContent.innerHTML;
+      aboutSection.classList.add("home-section-wrapper");
+
+      const aboutText = aboutSection.querySelector(".about-text");
+      if (aboutText) {
+        // Keep only the introductory paragraph in the homepage preview.
+        aboutText.querySelectorAll("p").forEach((paragraph, index) => {
+          if (index > 0) paragraph.classList.add("about-preview-extra");
+        });
+
+        const readMoreContainer = document.createElement("div");
+        readMoreContainer.className = "read-more-container";
+        readMoreContainer.innerHTML = '<a href="about.html" class="read-more">Read More →</a>';
+        aboutText.appendChild(readMoreContainer);
       }
     })
     .catch(error => console.error("Error loading About section:", error));
@@ -72,6 +86,7 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
 
       if (educationContent && educationBox) {
         educationBox.innerHTML = educationContent.innerHTML;
+        educationBox.classList.add("home-section-wrapper");
 
         const section = educationBox.querySelector(".education-box");
         const readMoreContainer = document.createElement("div");
@@ -101,10 +116,9 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
       heading.textContent = "Experiences";
       previewSection.appendChild(heading);
 
-      const items = Array.from(sourceSection.querySelectorAll(".experience-item")).slice(0, 2);
-      items.forEach(item => {
-        previewSection.appendChild(item.cloneNode(true));
-      });
+      Array.from(sourceSection.querySelectorAll(".experience-item"))
+        .slice(0, 2)
+        .forEach(item => previewSection.appendChild(item.cloneNode(true)));
 
       const readMoreContainer = document.createElement("div");
       readMoreContainer.className = "read-more-container";
@@ -112,6 +126,7 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
       previewSection.appendChild(readMoreContainer);
 
       target.innerHTML = "";
+      target.classList.add("home-section-wrapper");
       target.appendChild(previewSection);
     })
     .catch(error => console.error("Error loading Experiences preview:", error));
