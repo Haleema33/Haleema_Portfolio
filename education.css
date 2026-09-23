@@ -2,8 +2,7 @@
    GLOBAL CONTAINER STYLING
 ============================== */
 .education-container {
-   
-   max-width: 1100px;
+    max-width: 1100px;
     margin: 50px auto;
     padding: 40px;
     display: flex;
@@ -11,12 +10,7 @@
     gap: 40px;
     font: 32px, 'Poppins', sans-serif;
     align-items: center;
-  margin: 0 auto;
-  
-   border-radius: 20px;
- 
-
-    
+    border-radius: 20px;
 }
 
 /* ==============================
@@ -28,11 +22,8 @@
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    padding: 5%;
     max-width: 1000px;
     align-items: center;
-   
-   
 }
 
 /* Section Headings */
@@ -42,7 +33,6 @@
     margin-bottom: 25px;
     display: inline-block;
     padding-bottom: 5px;
-    
 }
 
 /* ==============================
@@ -57,7 +47,7 @@
 }
 
 .education-school {
-    color: #ffd700; /* Gold text */
+    color: #ffd700;
     font-weight: bold;
     margin-bottom: 8px;
 }
@@ -68,10 +58,63 @@
 }
 
 /* ==============================
+   EXPERIENCE SECTION
+============================== */
+.experience-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 20px 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.experience-meta {
+    margin-bottom: 8px;
+}
+
+.experience-date {
+    color: #c0c6ff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.experience-role {
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.experience-company {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.experience-detail {
+    color: #e8ecff;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.experiences-box {
+    background: rgb(9, 3, 49);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ==============================
    COURSES SECTION
 ============================== */
 .courses-box {
-  background: rgb(9, 3, 49);;
+  background: rgb(9, 3, 49);
   padding: 5%;
   border-radius: 20px;
   margin: 60px auto;
@@ -79,10 +122,8 @@
   color: white;
   text-align: left;
   max-width: 1000px;
-
 }
 
-/* Course title */
 .course-title {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
@@ -91,9 +132,6 @@
   color: #ffd700;
 }
 
-
-
-/* Individual course cards */
 .course-card {
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -106,29 +144,25 @@
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* Hover animation for smooth effect */
 .course-card:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-5px);
 }
+
 /* ==============================
    AWARDS SECTION
 ============================== */
-
-
 .award-item {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
     text-align: left;
-    
 }
 
 .award-title {
-    color: #ffd700; /* Gold heading */
+    color: #ffd700;
     margin-bottom: 10px;
-    
 }
 
 .award-detail {
@@ -151,12 +185,12 @@
 
     .education-item,
     .award-item,
-    .courses-list {
+    .courses-list,
+    .experience-item {
         padding: 15px;
     }
 }
 
-/*first read me content*/
 .read-more {
   display: inline-block;
   text-decoration: none;
@@ -173,12 +207,7 @@
   color: white;
 }
 
-/*second read me content*/
-
-
 .read-more-container {
   text-align: center;
   margin-top: 20px;
 }
-
-
