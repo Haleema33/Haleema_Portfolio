@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Load a compact About preview and the full Education preview on the home page.
+// Load homepage previews.
 if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
   const aboutBox = document.getElementById("about-section");
 
@@ -69,8 +69,7 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
 
         const aboutText = aboutBox.querySelector(".about-text");
         if (aboutText) {
-          const paragraphs = aboutText.querySelectorAll("p");
-          paragraphs.forEach((paragraph, index) => {
+          aboutText.querySelectorAll("p").forEach((paragraph, index) => {
             if (index > 0) paragraph.classList.add("about-preview-extra");
           });
 
@@ -104,5 +103,32 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
         else educationBox.appendChild(readMoreContainer);
       })
       .catch(error => console.error("Error loading Education section:", error));
+  }
+
+  const experiencesBox = document.getElementById("experiences");
+  if (experiencesBox) {
+    fetch("experiences.html")
+      .then(response => response.text())
+      .then(data => {
+        const doc = new DOMParser().parseFromString(data, "text/html");
+        const experiencesContent = doc.querySelector("#experiences");
+        if (!experiencesContent) return;
+
+        experiencesBox.innerHTML = experiencesContent.innerHTML;
+        experiencesBox.classList.add("home-section-wrapper");
+
+        const section = experiencesBox.querySelector(".experiences-box");
+        if (!section) return;
+
+        section.querySelectorAll(".experience-item").forEach((item, index) => {
+          if (index >= 2) item.classList.add("experience-preview-extra");
+        });
+
+        const readMoreContainer = document.createElement("div");
+        readMoreContainer.className = "read-more-container";
+        readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
+        section.appendChild(readMoreContainer);
+      })
+      .catch(error => console.error("Error loading Experiences section:", error));
   }
 }
