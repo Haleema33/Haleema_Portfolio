@@ -114,20 +114,21 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
         const experiencesContent = doc.querySelector("#experiences");
         if (!experiencesContent) return;
 
-        experiencesBox.innerHTML = experiencesContent.innerHTML;
-        experiencesBox.classList.add("home-section-wrapper");
-
-        const section = experiencesBox.querySelector(".experiences-box");
+        const section = experiencesContent.querySelector(".experiences-box");
         if (!section) return;
 
-        section.querySelectorAll(".experience-item").forEach((item, index) => {
-          if (index >= 2) item.classList.add("experience-preview-extra");
-        });
+        const previewSection = section.cloneNode(true);
+        const experienceItems = Array.from(previewSection.querySelectorAll(".experience-item"));
+        experienceItems.slice(2).forEach(item => item.remove());
 
         const readMoreContainer = document.createElement("div");
         readMoreContainer.className = "read-more-container";
         readMoreContainer.innerHTML = '<a href="experiences.html" class="read-more">Read More →</a>';
-        section.appendChild(readMoreContainer);
+        previewSection.appendChild(readMoreContainer);
+
+        experiencesBox.innerHTML = "";
+        experiencesBox.classList.add("home-section-wrapper");
+        experiencesBox.appendChild(previewSection);
       })
       .catch(error => console.error("Error loading Experiences section:", error));
   }
