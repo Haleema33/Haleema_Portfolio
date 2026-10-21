@@ -1,7 +1,66 @@
-/* ==============================
-    PROJECTS SECTION
+/* ============================== 
+   GLOBAL CONTAINER STYLING
 ============================== */
-.project-item {
+.education-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font: 32px, 'Poppins', sans-serif;
+    align-items: center;
+    border-radius: 20px;
+}
+
+/* ==============================
+   SECTION BASE STYLING
+============================== */
+.main-section {
+    background: rgb(9, 3, 49);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    max-width: 1000px;
+    align-items: center;
+}
+
+/* Section Headings */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* ==============================
+   EDUCATION SECTION
+============================== */
+.education-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.education-school {
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.education-degree {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* ==============================
+   EXPERIENCE SECTION
+============================== */
+.experience-item {
     background-color: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 20px 18px;
@@ -11,43 +70,37 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+.experience-meta {
     margin-bottom: 8px;
-    flex-wrap: wrap;
 }
 
-.project-name {
+.experience-date {
+    color: #c0c6ff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.experience-role {
     color: #ffd700;
     font-weight: bold;
-    margin: 0;
+    margin-bottom: 8px;
     font-size: 1.2rem;
 }
 
-.project-link {
-    color: #c0c6ff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
-}
-
-.project-link:hover {
+.experience-company {
     color: #ffffff;
-    text-decoration: underline;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
-.project-detail {
+.experience-detail {
     color: #e8ecff;
     line-height: 1.6;
     margin: 0;
 }
 
-/* Optional: keep project list visually consistent with experience blocks */
-#projects .main-section {
+.experiences-box {
     background: rgb(9, 3, 49);
     color: white;
     border-radius: 15px;
@@ -57,9 +110,104 @@
     margin: 0 auto;
 }
 
+/* ==============================
+   COURSES SECTION
+============================== */
+.courses-box {
+  background: rgb(9, 3, 49);
+  padding: 5%;
+  border-radius: 20px;
+  margin: 60px auto;
+  width: 90;
+  color: white;
+  text-align: left;
+  max-width: 1000px;
+}
+
+.course-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+.course-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.course-card:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+/* ==============================
+   AWARDS SECTION
+============================== */
+.award-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.award-title {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.award-detail {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
 @media (max-width: 768px) {
-    .project-header {
-        align-items: flex-start;
-        flex-direction: column;
+    .education-container {
+        padding: 0 10px;
+        gap: 30px;
     }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .education-item,
+    .award-item,
+    .courses-list,
+    .experience-item {
+        padding: 15px;
+    }
+}
+
+.read-more {
+  display: inline-block;
+  text-decoration: none;
+  color: #080e6d;
+  font-weight: 600;
+  border: 2px solid #12065c;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+.read-more-container {
+  text-align: center;
+  margin-top: 20px;
 }
